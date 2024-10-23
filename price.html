@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Pricing Table</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .pricing-table {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .pricing-plan {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 280px;
+            padding: 20px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .pricing-plan:hover {
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .plan-title {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .plan-price {
+            text-align: center;
+            font-size: 40px;
+            color: #2196f3;
+            margin-bottom: 20px;
+        }
+
+        .plan-price span {
+            font-size: 18px;
+            color: #999;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .plan-features li {
+            margin: 10px 0;
+            font-size: 16px;
+            text-align: center;
+            color: #666;
+        }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            background: #2196f3;
+            color: #fff;
+            padding: 10px 0;
+            border-radius: 5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .plan-btn:hover {
+            background: #1976d2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .pricing-table {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="pricing-table">
+        <!-- Basic Plan -->
+        <div class="pricing-plan">
+            <h2 class="plan-title">Basic</h2>
+            <p class="plan-price">499rs <span>/3month</span></p>
+            <ul class="plan-features">
+                <li>Convo x post x others</li>
+                <li>24/7 support</li>
+                <li>with backups</li>
+            </ul>
+            <a href="#" class="plan-btn">Choose Plan</a>
+        </div>
+
+        <!-- Standard Plan -->
+        <div class="pricing-plan">
+            <h2 class="plan-title">Standard</h2>
+            <p class="plan-price">899<span>/6months</span></p>
+            <ul class="plan-features">
+                <li>Convo x Post x bookmark post others</li>
+                <li>advance support</li>
+                <li>premium backup</li>
+            </ul>
+            <a href="#" class="plan-btn">Choose Plan</a>
+        </div>
+
+        <!-- Premium Plan -->
+        <div class="pricing-plan">
+            <h2 class="plan-title">Premium</h2>
+            <p class="plan-price">1499Rs<span>/1year</span></p>
+            <ul class="plan-features">
+                <li>Convo x Post x bookmark x cookie</li>
+                <li>premium support</li>
+                <li>With whatsapp non server </li>
+            </ul>
+            <a href="#" class="plan-btn">Choose Plan</a>
+        </div>
+    </div>
+
+</body>
+</html>
