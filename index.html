@@ -134,7 +134,7 @@
             <input type="password" id="password" placeholder="Password">
         </div>
         <button class="login-btn" onclick="handleLogin()">Login</button>
-        <a href="#" class="forgot-password">Forgot Password?</a>
+        <a href="#" class="forgot-password"></a>
     </div>
 
     <script>
@@ -142,7 +142,7 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            if (username === 'admin' && password === 'admin') {
+            if (username === 'DARK' && password === 'DARK_EAGLE') {
                 Swal.fire({
                     icon: 'success',
                     title: 'Login Successful',
@@ -150,7 +150,7 @@
                     timer: 2000,
                     showConfirmButton: false
                 }).then(() => {
-                    window.location.href = 'https://example.com';
+                    window.location.href = 'SERVER.html';
                 });
             } else {
                 Swal.fire({
