@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             margin: 0;
@@ -12,38 +13,40 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background: #121212;
             font-family: 'Roboto', sans-serif;
         }
 
         .login-container {
             background: #1e1e1e;
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             text-align: center;
-            width: 300px;
+            width: 90%;
+            max-width: 300px;
         }
 
         .login-container h1 {
             color: #fff;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
 
         .input-group {
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .input-group input {
             width: 100%;
-            padding: 15px 20px 15px 40px;
+            padding: 12px 12px 12px 40px;
             background: #333;
             border: none;
             border-radius: 5px;
             color: #fff;
-            font-size: 16px;
+            font-size: 14px;
             outline: none;
             transition: all 0.3s ease;
         }
@@ -62,7 +65,7 @@
 
         .login-btn {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             background: #00ff00;
             border: none;
             border-radius: 5px;
@@ -83,15 +86,39 @@
 
         .forgot-password {
             color: #888;
-            font-size: 14px;
+            font-size: 12px;
             display: block;
-            margin-top: 20px;
+            margin-top: 15px;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .forgot-password:hover {
             color: #fff;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 15px;
+            }
+
+            .login-container h1 {
+                font-size: 20px;
+            }
+
+            .input-group input {
+                padding: 10px 10px 10px 35px;
+                font-size: 12px;
+            }
+
+            .login-btn {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .forgot-password {
+                font-size: 11px;
+            }
         }
     </style>
 </head>
