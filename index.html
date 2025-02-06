@@ -1,165 +1,173 @@
 <html>
-<head>
-    <title>Login Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
+ <head>
+  <title>
+   Server Information
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: #121212;
-            font-family: 'Roboto', sans-serif;
+            height: 1300px;
         }
-
-        .login-container {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            text-align: center;
+        .container {
             width: 90%;
-            max-width: 300px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
         }
-
-        .login-container h1 {
+        .header {
+            background: #007BFF;
             color: #fff;
-            margin-bottom: 20px;
-            font-size: 24px;
+            padding: 20px;
+            text-align: center;
         }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 20px;
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
         }
-
-        .input-group input {
+        .server-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .server {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 12px;
             width: 100%;
-            padding: 12px 12px 12px 40px;
-            background: #333;
-            border: none;
-            border-radius: 5px;
-            color: #fff;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.3s ease;
+            max-width: 350px;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-
-        .input-group input:focus {
-            box-shadow: 0 0 10px #00ff00;
+        .server:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-
-        .input-group i {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
-            color: #888;
-        }
-
-        .login-btn {
+        .server img {
             width: 100%;
-            padding: 12px;
-            background: #00ff00;
-            border: none;
-            border-radius: 5px;
-            color: #000;
-            font-size: 16px;
+            border-radius: 8px;
+        }
+        .server h2 {
+            margin: 5px 0;
+            font-size: 17px;
+            color: #333;
+        }
+        .server p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .server .location {
+            color: #007BFF;
             font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
-
-        .login-btn:hover {
-            background: #00cc00;
-        }
-
-        .login-btn:focus {
-            box-shadow: 0 0 10px #00ff00;
-        }
-
-        .forgot-password {
-            color: #888;
-            font-size: 12px;
-            display: block;
-            margin-top: 15px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .forgot-password:hover {
+        .server .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #007BFF;
             color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, box-shadow 0.3s;
         }
-
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 15px;
-            }
-
-            .login-container h1 {
-                font-size: 20px;
-            }
-
-            .input-group input {
-                padding: 10px 10px 10px 35px;
-                font-size: 12px;
-            }
-
-            .login-btn {
-                padding: 10px;
-                font-size: 14px;
-            }
-
-            .forgot-password {
-                font-size: 11px;
-            }
+        .server .btn:hover {
+            background: #0056b3;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
-    </style>
-</head>
-<body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text" id="username" placeholder="Username">
-        </div>
-        <div class="input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="password" placeholder="Password">
-        </div>
-        <button class="login-btn" onclick="handleLogin()">Login</button>
-        <a href="#" class="forgot-password"></a>
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <div class="header">
+    <h1>
+     TOOLS
+    </h1>
+   </div>
+   <div class="server-list">
+    <div class="server">
+     <img alt="Image of Server 1 with racks of servers and blinking lights" src="https://i.ibb.co/60TX5zMW/59ea8d25e52bebc7267412d3eb2c7cd6.jpg"/>
+     <h2>
+      ACCESS TOKEN GENERATOR 
+     </h2>
+     <p>
+      <i class="fas fa-server">
+      </i>
+      IP Address: 192.168.1.1
+     </p>
+     <p>
+      <i class="fas fa-map-marker-alt">
+      </i>
+      Location: India
+     </p>
+     <p>
+      <i class="fas fa-circle text-green-500"></i> Status: Online
+     </p>
+     <a class="btn" href="token.html" target="_blank">
+      View Details
+     </a>
     </div>
-
-    <script>
-        function handleLogin() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (username === 'DARK' && password === 'DARK_EAGLE') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Login Successful',
-                    text: 'server open wait ✅.',
-                    timer: 2000,
-                    showConfirmButton: false
-                }).then(() => {
-                    window.location.href = 'SERVER.html';
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Login Failed',
-                    text: 'Invalid username or password.'
-                });
-            }
-        }
-    </script>
-</body>
+    <div class="server">
+     <img alt="Image of Server 2 with a modern data center setup" src="https://i.ibb.co/60TX5zMW/59ea8d25e52bebc7267412d3eb2c7cd6.jpg"/>
+     <h2>
+      ACCESS TOKEN CHECKER
+     </h2>
+     <p>
+      <i class="fas fa-server">
+      </i>
+      IP Address: 192.168.1.2
+     </p>
+     <p>
+      <i class="fas fa-map-marker-alt">
+      </i>
+      Location: India
+     </p>
+     <p>
+      <i class="fas fa-circle text-green-500"></i> Status: Online
+     </p>
+     <a class="btn" href="http://example.com/server2" target="_blank">
+      View Details
+     </a>
+    </div>
+    <div class="server">
+     <img alt="Image of Server 3 with a futuristic server room" src="https://i.ibb.co/60TX5zMW/59ea8d25e52bebc7267412d3eb2c7cd6.jpg"/>
+     <h2>
+     PAGE TOKEN EXTRACT
+     </h2>
+     <p>
+      <i class="fas fa-server">
+      </i>
+      IP Address: 192.168.1.3
+     </p>
+     <p>
+      <i class="fas fa-map-marker-alt">
+      </i>
+      Location: India
+     </p>
+     <p>
+      <i class="fas fa-circle text-green-500"></i> Status: Online
+     </p>
+     <a class="btn" href="http://example.com/server3" target="_blank">
+      View Details
+     </a>
+    </div>
+   </div>
+  </div>
+ </body>
 </html>
